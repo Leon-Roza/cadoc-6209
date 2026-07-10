@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: cadoc-6209-backend
+    runtime: docker
+    repo: https://github.com/Leon-Roza/cadoc-6209
+    branch: main
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./cadoc6209.db
+      - key: SECRET_KEY
+        generateValue: true
